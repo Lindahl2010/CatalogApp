@@ -26,7 +26,7 @@ namespace CatalogApp
     class Movie
     {
 
-
+        public int movieID { get; set; }
         public string title { get; set; }
         public string genre { get; set; }
         public int year { get; set; }
@@ -37,8 +37,9 @@ namespace CatalogApp
 
         }
 
-        public Movie(string title, string genre, int year, string rating)
+        public Movie(int movieID, string title, string genre, int year, string rating)
         {
+            this.movieID = movieID;
             this.title = title;
             this.genre = genre;
             this.year = year;

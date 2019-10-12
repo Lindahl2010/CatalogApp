@@ -22,7 +22,7 @@ namespace CatalogApp
         }
 
         //Database Connection String to be accessed  whenever manipulating the DB
-        public static string connectionString = "server=10.3.129.141;database=catalog;user id=lindahlish;password=Password01;";
+        public static string connectionString = "server=192.168.1.25;database=catalog;user id=lindahlish;password=Password01;";
         public static MySqlConnection conn;
         public static MySqlDataReader reader;
 
@@ -58,25 +58,50 @@ namespace CatalogApp
 
             try
             {
+                int ID;
+                string genre, year, rating;
                 conn = new MySqlConnection(connectionString);
-                string query = "SELECT title FROM movies;";
-                MySqlCommand command = new MySqlCommand(query, conn);
+                string query = "SELECT * FROM movies;";
 
-                conn.Open();
-                using (reader = command.ExecuteReader())
+                List<Movie> movies = new List<Movie>();
+                Movie movie;
+
+                using (MySqlCommand command = new MySqlCommand(query, conn))
                 {
-                    while(reader.Read())
+                    conn.Open();
+
+                    reader = command.ExecuteReader();
+
+                    while (reader.Read())
                     {
+                        
+                        movie = new Movie(reader.GetInt32(0), reader.GetString(1), reader.GetString(2), reader.GetInt32(3), reader.GetString(4));
+                        movies.Add(movie);
+                        for(int i = 0; i <= movies.Count() + 1; i++)
+                        {
+                            Console.WriteLine(i.ToString());
+                            Console.WriteLine(movies[i].title);
+                        }
+                        Console.WriteLine(reader.GetString(1));
 
                     }
+
+                    reader.Close();
+
                 }
                 conn.Close();
 
+                
             }
             catch (Exception ex)
             {
                 MessageBox.Show(Convert.ToString(ex));
             }
+        }
+
+        private void searchTxtBox_TextChanged(object sender, EventArgs e)
+        {
+
         }
     }
 }

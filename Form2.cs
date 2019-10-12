@@ -22,7 +22,7 @@ namespace CatalogApp
         }
 
         //Database Connection String to be accessed  whenever manipulating the DB
-        public static string connectionString = "server=10.3.129.141;database=catalog;user id=lindahlish;password=Password01;";
+        public static string connectionString = "server=192.168.1.25;database=catalog;user id=lindahlish;password=Password01;";
         public static MySqlConnection conn;
         public static MySqlDataReader reader;
 
@@ -60,12 +60,12 @@ namespace CatalogApp
                 string year = this.releaseCmbBox.Text;
                 string rating = this.rateCmbBox.Text;                
 
-                movie = new Movie(title, genre, Convert.ToInt32(year), rating);
-                movies.Add(movie);
-                for (int i = 0; i <= movies.Count(); i++)
-                {
-                    Console.WriteLine(movies[i]);
-                }
+                //movie = new Movie(title, genre, Convert.ToInt32(year), rating);
+                //movies.Add(movie);
+                //for (int i = 0; i <= movies.Count(); i++)
+                //{
+                //    Console.WriteLine(movies[i]);
+                //}
 
                 MySqlConnection conn = new MySqlConnection(connectionString);
 
