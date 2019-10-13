@@ -16,4 +16,3 @@ C:\Users\linelij\source\repos\CatalogApp\bin\Debug\MySql.Data.xml
 C:\Users\linelij\source\repos\CatalogApp\bin\Debug\Renci.SshNet.xml
 C:\Users\linelij\source\repos\CatalogApp\obj\Debug\CatalogApp.csproj.CopyComplete
 C:\Users\linelij\source\repos\CatalogApp\obj\Debug\CatalogApp.NewEntry.resources
-C:\Users\linelij\source\repos\CatalogApp\obj\Debug\CatalogApp.csproj.CoreCompileInputs.cache

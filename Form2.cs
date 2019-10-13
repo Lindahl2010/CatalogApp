@@ -22,7 +22,7 @@ namespace CatalogApp
         }
 
         //Database Connection String to be accessed  whenever manipulating the DB
-        public static string connectionString = "server=192.168.1.25;database=catalog;user id=lindahlish;password=Password01;";
+        public static string connectionString = "server=192.168.183.11;database=catalog;user id=lindahlish;password=Password01;";
         public static MySqlConnection conn;
         public static MySqlDataReader reader;
 
@@ -53,7 +53,7 @@ namespace CatalogApp
             try
             {
                 List<Movie> movies = new List<Movie>();
-                Movie movie;
+                //Movie movie;
 
                 string title = this.titleTxtBox.Text;
                 string genre = this.genreTxtBox.Text;
@@ -76,6 +76,7 @@ namespace CatalogApp
 
                 conn.Open();
                 reader = command.ExecuteReader();
+
                 conn.Close();
                 this.Close();
             }

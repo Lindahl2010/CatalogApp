@@ -23,7 +23,7 @@ namespace CatalogApp
 
 
 
-    class Movie
+    public class Movie
     {
 
         public int movieID { get; set; }

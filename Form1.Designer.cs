@@ -49,19 +49,18 @@
             this.searchLbl.AutoSize = true;
             this.searchLbl.BackColor = System.Drawing.SystemColors.ControlDarkDark;
             this.searchLbl.ForeColor = System.Drawing.SystemColors.Control;
-            this.searchLbl.Location = new System.Drawing.Point(9, 28);
-            this.searchLbl.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.searchLbl.Location = new System.Drawing.Point(12, 34);
             this.searchLbl.Name = "searchLbl";
-            this.searchLbl.Size = new System.Drawing.Size(112, 13);
+            this.searchLbl.Size = new System.Drawing.Size(146, 17);
             this.searchLbl.TabIndex = 10;
             this.searchLbl.Text = "Search Movie Catalog";
             // 
             // entryBtn
             // 
-            this.entryBtn.Location = new System.Drawing.Point(362, 192);
-            this.entryBtn.Margin = new System.Windows.Forms.Padding(2);
+            this.entryBtn.Location = new System.Drawing.Point(483, 236);
+            this.entryBtn.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.entryBtn.Name = "entryBtn";
-            this.entryBtn.Size = new System.Drawing.Size(202, 62);
+            this.entryBtn.Size = new System.Drawing.Size(269, 76);
             this.entryBtn.TabIndex = 7;
             this.entryBtn.Text = "New Entry";
             this.entryBtn.UseVisualStyleBackColor = true;
@@ -71,19 +70,18 @@
             // 
             this.searchTxtBox.BackColor = System.Drawing.SystemColors.ControlDarkDark;
             this.searchTxtBox.ForeColor = System.Drawing.SystemColors.Control;
-            this.searchTxtBox.Location = new System.Drawing.Point(9, 26);
-            this.searchTxtBox.Margin = new System.Windows.Forms.Padding(2);
+            this.searchTxtBox.Location = new System.Drawing.Point(12, 32);
+            this.searchTxtBox.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.searchTxtBox.Name = "searchTxtBox";
-            this.searchTxtBox.Size = new System.Drawing.Size(218, 20);
+            this.searchTxtBox.Size = new System.Drawing.Size(289, 22);
             this.searchTxtBox.TabIndex = 8;
-            this.searchTxtBox.TextChanged += new System.EventHandler(this.searchTxtBox_TextChanged);
             // 
             // displayBtn
             // 
-            this.displayBtn.Location = new System.Drawing.Point(362, 125);
-            this.displayBtn.Margin = new System.Windows.Forms.Padding(2);
+            this.displayBtn.Location = new System.Drawing.Point(483, 154);
+            this.displayBtn.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.displayBtn.Name = "displayBtn";
-            this.displayBtn.Size = new System.Drawing.Size(202, 62);
+            this.displayBtn.Size = new System.Drawing.Size(269, 76);
             this.displayBtn.TabIndex = 6;
             this.displayBtn.Text = "Show Movies";
             this.displayBtn.UseVisualStyleBackColor = true;
@@ -91,13 +89,14 @@
             // 
             // searchBtn
             // 
-            this.searchBtn.Location = new System.Drawing.Point(230, 26);
-            this.searchBtn.Margin = new System.Windows.Forms.Padding(2);
+            this.searchBtn.Location = new System.Drawing.Point(307, 32);
+            this.searchBtn.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.searchBtn.Name = "searchBtn";
-            this.searchBtn.Size = new System.Drawing.Size(56, 19);
+            this.searchBtn.Size = new System.Drawing.Size(75, 23);
             this.searchBtn.TabIndex = 9;
             this.searchBtn.Text = "Search";
             this.searchBtn.UseVisualStyleBackColor = true;
+            this.searchBtn.Click += new System.EventHandler(this.searchBtn_Click);
             // 
             // listView1
             // 
@@ -107,10 +106,11 @@
             this.genreHeader,
             this.releaseHeader,
             this.ratingHeader});
-            this.listView1.Location = new System.Drawing.Point(9, 50);
-            this.listView1.Margin = new System.Windows.Forms.Padding(2);
+            this.listView1.HideSelection = false;
+            this.listView1.Location = new System.Drawing.Point(12, 62);
+            this.listView1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.listView1.Name = "listView1";
-            this.listView1.Size = new System.Drawing.Size(304, 307);
+            this.listView1.Size = new System.Drawing.Size(404, 377);
             this.listView1.TabIndex = 11;
             this.listView1.UseCompatibleStateImageBehavior = false;
             this.listView1.View = System.Windows.Forms.View.Details;
@@ -138,9 +138,10 @@
             // genreRdBtn
             // 
             this.genreRdBtn.AutoSize = true;
-            this.genreRdBtn.Location = new System.Drawing.Point(292, 28);
+            this.genreRdBtn.Location = new System.Drawing.Point(389, 34);
+            this.genreRdBtn.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.genreRdBtn.Name = "genreRdBtn";
-            this.genreRdBtn.Size = new System.Drawing.Size(54, 17);
+            this.genreRdBtn.Size = new System.Drawing.Size(69, 21);
             this.genreRdBtn.TabIndex = 12;
             this.genreRdBtn.TabStop = true;
             this.genreRdBtn.Text = "Genre";
@@ -149,9 +150,10 @@
             // titleRdBtn
             // 
             this.titleRdBtn.AutoSize = true;
-            this.titleRdBtn.Location = new System.Drawing.Point(352, 28);
+            this.titleRdBtn.Location = new System.Drawing.Point(469, 34);
+            this.titleRdBtn.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.titleRdBtn.Name = "titleRdBtn";
-            this.titleRdBtn.Size = new System.Drawing.Size(45, 17);
+            this.titleRdBtn.Size = new System.Drawing.Size(56, 21);
             this.titleRdBtn.TabIndex = 13;
             this.titleRdBtn.TabStop = true;
             this.titleRdBtn.Text = "Title";
@@ -160,17 +162,18 @@
             // filterLbl
             // 
             this.filterLbl.AutoSize = true;
-            this.filterLbl.Location = new System.Drawing.Point(292, 9);
+            this.filterLbl.Location = new System.Drawing.Point(389, 11);
+            this.filterLbl.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.filterLbl.Name = "filterLbl";
-            this.filterLbl.Size = new System.Drawing.Size(47, 13);
+            this.filterLbl.Size = new System.Drawing.Size(63, 17);
             this.filterLbl.TabIndex = 14;
             this.filterLbl.Text = "Filter By:";
             // 
             // Form1
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(600, 366);
+            this.ClientSize = new System.Drawing.Size(800, 450);
             this.Controls.Add(this.filterLbl);
             this.Controls.Add(this.titleRdBtn);
             this.Controls.Add(this.genreRdBtn);
@@ -180,7 +183,7 @@
             this.Controls.Add(this.searchTxtBox);
             this.Controls.Add(this.displayBtn);
             this.Controls.Add(this.searchBtn);
-            this.Margin = new System.Windows.Forms.Padding(2);
+            this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.Name = "Form1";
             this.Text = "Form1";
             this.Load += new System.EventHandler(this.Form1_Load);
