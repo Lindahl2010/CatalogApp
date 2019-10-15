@@ -49,7 +49,7 @@
             this.searchLbl.AutoSize = true;
             this.searchLbl.BackColor = System.Drawing.SystemColors.ControlDarkDark;
             this.searchLbl.ForeColor = System.Drawing.SystemColors.Control;
-            this.searchLbl.Location = new System.Drawing.Point(12, 34);
+            this.searchLbl.Location = new System.Drawing.Point(21, 35);
             this.searchLbl.Name = "searchLbl";
             this.searchLbl.Size = new System.Drawing.Size(146, 17);
             this.searchLbl.TabIndex = 10;
@@ -75,6 +75,7 @@
             this.searchTxtBox.Name = "searchTxtBox";
             this.searchTxtBox.Size = new System.Drawing.Size(289, 22);
             this.searchTxtBox.TabIndex = 8;
+            this.searchTxtBox.TextChanged += new System.EventHandler(this.searchTxtBox_TextChanged);
             // 
             // displayBtn
             // 
@@ -118,6 +119,7 @@
             // idHeader
             // 
             this.idHeader.Text = "Movie ID";
+            this.idHeader.Width = 69;
             // 
             // titleHeader
             // 
@@ -139,7 +141,7 @@
             // 
             this.genreRdBtn.AutoSize = true;
             this.genreRdBtn.Location = new System.Drawing.Point(389, 34);
-            this.genreRdBtn.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.genreRdBtn.Margin = new System.Windows.Forms.Padding(4);
             this.genreRdBtn.Name = "genreRdBtn";
             this.genreRdBtn.Size = new System.Drawing.Size(69, 21);
             this.genreRdBtn.TabIndex = 12;
@@ -151,7 +153,7 @@
             // 
             this.titleRdBtn.AutoSize = true;
             this.titleRdBtn.Location = new System.Drawing.Point(469, 34);
-            this.titleRdBtn.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.titleRdBtn.Margin = new System.Windows.Forms.Padding(4);
             this.titleRdBtn.Name = "titleRdBtn";
             this.titleRdBtn.Size = new System.Drawing.Size(56, 21);
             this.titleRdBtn.TabIndex = 13;
