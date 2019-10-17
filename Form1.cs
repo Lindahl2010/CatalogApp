@@ -13,9 +13,9 @@ using System.Windows.Forms;
 
 namespace CatalogApp
 {
-    public partial class Form1 : Form
+    public partial class MainForm : Form
     {
-        public Form1()
+        public MainForm()
         {
             InitializeComponent();
 
@@ -48,11 +48,12 @@ namespace CatalogApp
 
             conn.Open();
             reader = selectData.ExecuteReader();
+
             while (reader.Read())
             {
                 rows = reader.GetInt32(0);
             }
-            Console.WriteLine(rows);
+
             reader.Close();
             conn.Close();
 
@@ -63,7 +64,7 @@ namespace CatalogApp
         {
             List<Movie> movieList = new List<Movie>();
             Movie movie;
-            const string query = "SELECT * FROM movies;";
+            const string query = "SELECT * FROM movies ORDER BY title ASC;";
             MySqlCommand command = new MySqlCommand(query, conn);
 
             try
@@ -109,27 +110,18 @@ namespace CatalogApp
             try
             {
                 int size = getRowCount();
-                string query = "SELECT * FROM movies;";
+                string query = "SELECT * FROM movies ORDER BY title ASC;";
                 MySqlCommand command = new MySqlCommand(query, conn);
 
                 List<Movie> movieList = new List<Movie>();
                 movieList = GetMovies();
 
+                listView1.Items.Clear();
                 foreach (var item in movieList)
                 {
                     string[] row = { Convert.ToString(item.movieID), item.title, item.genre, Convert.ToString(item.year), item.rating };
                     var listItem = new ListViewItem(row);
-                    int compare = String.Compare(listItem.SubItems[0].Text, Convert.ToString(item.movieID));
-
-                    if (listView1.Items.Count != size)
-                    {
-                        listView1.Items.Add(listItem);
-                    }
-                    else
-                    {
-                        break;
-                    }
-
+                    listView1.Items.Add(listItem);
                 }
 
             }
@@ -147,6 +139,29 @@ namespace CatalogApp
         private void searchTxtBox_TextChanged(object sender, EventArgs e)
         {
             searchLbl.Visible = false;
+        }
+
+        public static string setTitle, setGenre, setRelease, setRating, movieID;
+        private void listView1_DoubleClick(object sender, EventArgs e)
+        {
+            ListView.SelectedListViewItemCollection movie = this.listView1.SelectedItems;
+            foreach(ListViewItem item in movie)
+            {
+                for(int i = 0; i <= item.SubItems.Count; i++)
+                {
+                    movieID = item.SubItems[0].Text;
+                    setTitle = item.SubItems[1].Text;
+                    setGenre = item.SubItems[2].Text;
+                    setRelease = item.SubItems[3].Text;
+                    setRating = item.SubItems[4].Text;
+                }
+                //setTitle = item.SubItems[0].Text;
+            }
+            
+
+            ModifyEntry modifyForm = new ModifyEntry();
+            modifyForm.ShowDialog();
+
         }
     }
 }
