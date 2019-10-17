@@ -2,7 +2,6 @@ C:\Users\linelij\source\repos\CatalogApp\bin\Debug\CatalogApp.exe.config
 C:\Users\linelij\source\repos\CatalogApp\bin\Debug\CatalogApp.exe
 C:\Users\linelij\source\repos\CatalogApp\bin\Debug\CatalogApp.pdb
 C:\Users\linelij\source\repos\CatalogApp\obj\Debug\CatalogApp.csprojAssemblyReference.cache
-C:\Users\linelij\source\repos\CatalogApp\obj\Debug\CatalogApp.Form1.resources
 C:\Users\linelij\source\repos\CatalogApp\obj\Debug\CatalogApp.Properties.Resources.resources
 C:\Users\linelij\source\repos\CatalogApp\obj\Debug\CatalogApp.csproj.GenerateResource.cache
 C:\Users\linelij\source\repos\CatalogApp\obj\Debug\CatalogApp.exe
@@ -16,3 +15,5 @@ C:\Users\linelij\source\repos\CatalogApp\bin\Debug\MySql.Data.xml
 C:\Users\linelij\source\repos\CatalogApp\bin\Debug\Renci.SshNet.xml
 C:\Users\linelij\source\repos\CatalogApp\obj\Debug\CatalogApp.csproj.CopyComplete
 C:\Users\linelij\source\repos\CatalogApp\obj\Debug\CatalogApp.NewEntry.resources
+C:\Users\linelij\source\repos\CatalogApp\obj\Debug\CatalogApp.MainForm.resources
+C:\Users\linelij\source\repos\CatalogApp\obj\Debug\CatalogApp.ModifyEntry.resources
