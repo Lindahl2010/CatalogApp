@@ -107,12 +107,12 @@ namespace CatalogApp
             MySqlCommand command;
 
             //Check if the user entered anything into the search box
-            if (searchData != null)
+            if (!String.IsNullOrEmpty(searchData))
             {
                 //Search by movie title
                 if (titleBut == true)
                 {
-                    query = $"SELECT * FROM movies WHERE title LIKE %'{searchData}'% ORDER BY title ASC;";
+                    query = $"SELECT * FROM movies WHERE title LIKE '%{searchData}%' ORDER BY title ASC;";
                     command = new MySqlCommand(query, conn);
 
                     using (command)
@@ -139,7 +139,7 @@ namespace CatalogApp
                 
                 else if (genreBut == true)
                 {
-                    query = $"SELECT * FROM movies WHERE genre LIKE %'{searchData}'% ORDER BY title ASC;";
+                    query = $"SELECT * FROM movies WHERE genre LIKE '%{searchData}%' ORDER BY title ASC;";
                     command = new MySqlCommand(query, conn);
 
                     using (command)
@@ -243,6 +243,7 @@ namespace CatalogApp
 
             listView1.Items.Clear();
             unitTest1 = QueryDB(searchData, titleBut, genreBut, listView1);
+            Console.WriteLine(searchData);
         }
 
         private void searchTxtBox_TextChanged(object sender, EventArgs e)
