@@ -1,6 +1,6 @@
 ﻿namespace CatalogApp
 {
-    partial class Form1
+    partial class MainForm
     {
         /// <summary>
         /// Required designer variable.
@@ -107,6 +107,7 @@
             this.genreHeader,
             this.releaseHeader,
             this.ratingHeader});
+            this.listView1.FullRowSelect = true;
             this.listView1.HideSelection = false;
             this.listView1.Location = new System.Drawing.Point(12, 62);
             this.listView1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
@@ -115,6 +116,7 @@
             this.listView1.TabIndex = 11;
             this.listView1.UseCompatibleStateImageBehavior = false;
             this.listView1.View = System.Windows.Forms.View.Details;
+            this.listView1.DoubleClick += new System.EventHandler(this.listView1_DoubleClick);
             // 
             // idHeader
             // 
@@ -171,7 +173,7 @@
             this.filterLbl.TabIndex = 14;
             this.filterLbl.Text = "Filter By:";
             // 
-            // Form1
+            // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -186,8 +188,8 @@
             this.Controls.Add(this.displayBtn);
             this.Controls.Add(this.searchBtn);
             this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.Name = "Form1";
-            this.Text = "Form1";
+            this.Name = "MainForm";
+            this.Text = "Movie Catalog";
             this.Load += new System.EventHandler(this.Form1_Load);
             this.ResumeLayout(false);
             this.PerformLayout();

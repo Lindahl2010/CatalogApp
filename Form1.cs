@@ -13,16 +13,16 @@ using System.Windows.Forms;
 
 namespace CatalogApp
 {
-    public partial class Form1 : Form
+    public partial class MainForm : Form
     {
-        public Form1()
+        public MainForm()
         {
             InitializeComponent();
 
         }
 
         //Database Connection String to be accessed  whenever manipulating the DB
-        public static string connectionString = "server=10.3.129.141;database=catalog;user id=lindahlish;password=Password01;";
+        public static string connectionString = "server=192.168.183.11;database=catalog;user id=lindahlish;password=Password01;";
         public static MySqlConnection conn = new MySqlConnection(connectionString);
         public static MySqlDataReader reader;
 
@@ -48,11 +48,12 @@ namespace CatalogApp
 
             conn.Open();
             reader = selectData.ExecuteReader();
+
             while (reader.Read())
             {
                 rows = reader.GetInt32(0);
             }
-            Console.WriteLine(rows);
+
             reader.Close();
             conn.Close();
 
@@ -63,7 +64,7 @@ namespace CatalogApp
         {
             List<Movie> movieList = new List<Movie>();
             Movie movie;
-            const string query = "SELECT * FROM movies;";
+            const string query = "SELECT * FROM movies ORDER BY title ASC;";
             MySqlCommand command = new MySqlCommand(query, conn);
 
             try
@@ -134,9 +135,9 @@ namespace CatalogApp
                         reader.Close();
                         conn.Close();
                     }
-                    
+
                 }
-                
+
                 else if (genreBut == true)
                 {
                     query = $"SELECT * FROM movies WHERE genre LIKE '%{searchData}%' ORDER BY title ASC;";
@@ -205,26 +206,18 @@ namespace CatalogApp
             try
             {
                 int size = getRowCount();
-               
+                string query = "SELECT * FROM movies ORDER BY title ASC;";
+                MySqlCommand command = new MySqlCommand(query, conn);
 
                 List<Movie> movieList = new List<Movie>();
                 movieList = GetMovies();
 
+                listView1.Items.Clear();
                 foreach (var item in movieList)
                 {
                     string[] row = { Convert.ToString(item.movieID), item.title, item.genre, Convert.ToString(item.year), item.rating };
                     var listItem = new ListViewItem(row);
-                    int compare = String.Compare(listItem.SubItems[0].Text, Convert.ToString(item.movieID));
-
-                    if (listView1.Items.Count != size)
-                    {
-                        listView1.Items.Add(listItem);
-                    }
-                    else
-                    {
-                        break;
-                    }
-
+                    listView1.Items.Add(listItem);
                 }
 
             }
@@ -249,6 +242,29 @@ namespace CatalogApp
         private void searchTxtBox_TextChanged(object sender, EventArgs e)
         {
             searchLbl.Visible = false;
+        }
+
+        public static string setTitle, setGenre, setRelease, setRating, movieID;
+        private void listView1_DoubleClick(object sender, EventArgs e)
+        {
+            ListView.SelectedListViewItemCollection movie = this.listView1.SelectedItems;
+            foreach(ListViewItem item in movie)
+            {
+                for(int i = 0; i <= item.SubItems.Count; i++)
+                {
+                    movieID = item.SubItems[0].Text;
+                    setTitle = item.SubItems[1].Text;
+                    setGenre = item.SubItems[2].Text;
+                    setRelease = item.SubItems[3].Text;
+                    setRating = item.SubItems[4].Text;
+                }
+                //setTitle = item.SubItems[0].Text;
+            }
+            
+
+            ModifyEntry modifyForm = new ModifyEntry();
+            modifyForm.ShowDialog();
+
         }
     }
 }
