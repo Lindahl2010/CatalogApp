@@ -18,7 +18,6 @@ namespace CatalogApp
         public MainForm()
         {
             InitializeComponent();
-
         }
 
         //Database Connection String to be accessed  whenever manipulating the DB
@@ -26,12 +25,13 @@ namespace CatalogApp
         public static MySqlConnection conn = new MySqlConnection(connectionString);
         public static MySqlDataReader reader;
 
+        //Test Connection to DB on Loading the application.
         private void Form1_Load(object sender, EventArgs e)
         {
-
             try
             {
-
+                conn.Open();
+                conn.Close();
             }
             catch (Exception ex)
             {
@@ -39,6 +39,7 @@ namespace CatalogApp
             }
         }
 
+        //Gets the number of rows (aka movies) in the DB to set limit in loops. 
         public static int getRowCount()
         {
             int rows = 0;
@@ -60,6 +61,7 @@ namespace CatalogApp
             return rows;
         }
 
+        //
         public static List<Movie> GetMovies(ListView listView1)
         {
             List<Movie> movieList = new List<Movie>();
@@ -215,20 +217,6 @@ namespace CatalogApp
             {
 
                 GetMovies(listView1);
-                //int size = getRowCount();
-                //string query = "SELECT * FROM movies ORDER BY title ASC;";
-                //MySqlCommand command = new MySqlCommand(query, conn);
-
-                //List<Movie> movieList = new List<Movie>();
-                //movieList = GetMovies();
-
-                //listView1.Items.Clear();
-                //foreach (var item in movieList)
-                //{
-                //    string[] row = { Convert.ToString(item.movieID), item.title, item.genre, Convert.ToString(item.year), item.rating };
-                //    var listItem = new ListViewItem(row);
-                //    listView1.Items.Add(listItem);
-                //}
 
             }
             catch (Exception ex)
@@ -246,7 +234,6 @@ namespace CatalogApp
 
             listView1.Items.Clear();
             unitTest1 = QueryDB(searchData, titleBut, genreBut, listView1);
-            Console.WriteLine(searchData);
         }
 
         private void searchTxtBox_TextChanged(object sender, EventArgs e)
