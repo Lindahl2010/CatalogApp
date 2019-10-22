@@ -77,5 +77,21 @@ namespace CatalogApp
 
             }
         }
+
+        private void modifyBtn_Click(object sender, EventArgs e)
+        {
+            string movieID = MainForm.movieID;
+            string query = "UPDATE movies SET title= '" + this.titleTxtBox.Text + "', genre= '" + this.genreTxtBox.Text + "', year= '" + this.releaseCmbBox.Text + "'" +
+                ", rating= '" + this.rateCmbBox.Text + $"' WHERE ID = {movieID}";
+            MySqlCommand command = new MySqlCommand(query, conn);
+            using (command)
+            {
+                conn.Open();
+                reader = command.ExecuteReader();
+                reader.Close();
+                conn.Close();
+                this.Close();
+            }
+        }
     }
 }

@@ -31,7 +31,7 @@ namespace CatalogApp
 
             try
             {
-                GetMovies();
+
             }
             catch (Exception ex)
             {
@@ -60,7 +60,7 @@ namespace CatalogApp
             return rows;
         }
 
-        public static List<Movie> GetMovies()
+        public static List<Movie> GetMovies(ListView listView1)
         {
             List<Movie> movieList = new List<Movie>();
             Movie movie;
@@ -83,6 +83,14 @@ namespace CatalogApp
                         movie.year = reader.GetInt32(3);
                         movie.rating = reader.GetString(4);
                         movieList.Add(movie);
+                    }
+
+                    listView1.Items.Clear();
+                    foreach (var item in movieList)
+                    {
+                        string[] row = { Convert.ToString(item.movieID), item.title, item.genre, Convert.ToString(item.year), item.rating };
+                        var listItem = new ListViewItem(row);
+                        listView1.Items.Add(listItem);
                     }
 
                     reader.Close();
@@ -205,20 +213,22 @@ namespace CatalogApp
         { 
             try
             {
-                int size = getRowCount();
-                string query = "SELECT * FROM movies ORDER BY title ASC;";
-                MySqlCommand command = new MySqlCommand(query, conn);
 
-                List<Movie> movieList = new List<Movie>();
-                movieList = GetMovies();
+                GetMovies(listView1);
+                //int size = getRowCount();
+                //string query = "SELECT * FROM movies ORDER BY title ASC;";
+                //MySqlCommand command = new MySqlCommand(query, conn);
 
-                listView1.Items.Clear();
-                foreach (var item in movieList)
-                {
-                    string[] row = { Convert.ToString(item.movieID), item.title, item.genre, Convert.ToString(item.year), item.rating };
-                    var listItem = new ListViewItem(row);
-                    listView1.Items.Add(listItem);
-                }
+                //List<Movie> movieList = new List<Movie>();
+                //movieList = GetMovies();
+
+                //listView1.Items.Clear();
+                //foreach (var item in movieList)
+                //{
+                //    string[] row = { Convert.ToString(item.movieID), item.title, item.genre, Convert.ToString(item.year), item.rating };
+                //    var listItem = new ListViewItem(row);
+                //    listView1.Items.Add(listItem);
+                //}
 
             }
             catch (Exception ex)
@@ -258,12 +268,11 @@ namespace CatalogApp
                     setRelease = item.SubItems[3].Text;
                     setRating = item.SubItems[4].Text;
                 }
-                //setTitle = item.SubItems[0].Text;
             }
-            
 
             ModifyEntry modifyForm = new ModifyEntry();
             modifyForm.ShowDialog();
+            GetMovies(listView1);
 
         }
     }

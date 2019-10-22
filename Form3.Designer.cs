@@ -57,6 +57,7 @@
             this.modifyBtn.TabIndex = 16;
             this.modifyBtn.Text = "Modify Movie";
             this.modifyBtn.UseVisualStyleBackColor = true;
+            this.modifyBtn.Click += new System.EventHandler(this.modifyBtn_Click);
             // 
             // rateCmbBox
             // 
