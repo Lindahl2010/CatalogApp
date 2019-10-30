@@ -61,7 +61,7 @@ namespace CatalogApp
             return rows;
         }
 
-        //
+        //Method to run when getting data from the MariaDB which then creates object instances of the "movie" class.
         public static List<Movie> GetMovies(ListView listView1)
         {
             List<Movie> movieList = new List<Movie>();
@@ -93,6 +93,11 @@ namespace CatalogApp
                         string[] row = { Convert.ToString(item.movieID), item.title, item.genre, Convert.ToString(item.year), item.rating };
                         var listItem = new ListViewItem(row);
                         listView1.Items.Add(listItem);
+                    }
+
+                    if(movieList.Count == 0)
+                    {
+                        Console.WriteLine("OH NO, LIST HAVE NO STUFF");
                     }
 
                     reader.Close();
@@ -205,12 +210,14 @@ namespace CatalogApp
             return false;
         }
 
+        //Event that creates the form to allow user to enter a new movie into the catalog.
         private void entryBtn_Click(object sender, EventArgs e)
         {
             NewEntry entryForm = new NewEntry();
             entryForm.ShowDialog();
         }
 
+        //Event that displays all of the movies currently in the catalog in the listview.
         private void displayBtn_Click(object sender, EventArgs e)
         { 
             try
@@ -225,6 +232,7 @@ namespace CatalogApp
             }
         }
 
+        //Event that searches through the catalog based on input placed in the textbox and which radio button is selected (title or genre).
         private void searchBtn_Click(object sender, EventArgs e)
         {
             bool unitTest1;
@@ -236,12 +244,15 @@ namespace CatalogApp
             unitTest1 = QueryDB(searchData, titleBut, genreBut, listView1);
         }
 
+        //Clears the label in the Search Textbox when the user starts typing. 
         private void searchTxtBox_TextChanged(object sender, EventArgs e)
         {
             searchLbl.Visible = false;
         }
 
+        //String that will be used by Form 3.
         public static string setTitle, setGenre, setRelease, setRating, movieID;
+        //Event that allows the user to select a specific movie and either delete or modify that movie. 
         private void listView1_DoubleClick(object sender, EventArgs e)
         {
             ListView.SelectedListViewItemCollection movie = this.listView1.SelectedItems;

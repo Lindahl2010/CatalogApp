@@ -24,6 +24,7 @@ namespace CatalogApp
         public static MySqlConnection conn = new MySqlConnection(connectionString);
         public static MySqlDataReader reader;
 
+        //Event that sets up the Form when it is loaded.
         private void ModifyEntry_Load(object sender, EventArgs e)
         {
 
@@ -52,6 +53,7 @@ namespace CatalogApp
             rateCmbBox.Text = MainForm.setRating;
         }
 
+        //Event that removes the selected movie from the MariaDB.
         private void deleteBtn_Click(object sender, EventArgs e)
         {
             string message = "Are you sure you want to delete this Movie?";
@@ -78,6 +80,7 @@ namespace CatalogApp
             }
         }
 
+        //Event that modifies the movie that the user selected from Form1. 
         private void modifyBtn_Click(object sender, EventArgs e)
         {
             string movieID = MainForm.movieID;

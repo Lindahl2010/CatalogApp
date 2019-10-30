@@ -26,6 +26,7 @@ namespace CatalogApp
         public static MySqlConnection conn;
         public static MySqlDataReader reader;
 
+        //Event that sets up everything required for the form when it is loaded. 
         private void NewEntry_Load(object sender, EventArgs e)
         {
             //Sets Release Year Combo Box with available year options.
@@ -48,24 +49,17 @@ namespace CatalogApp
             this.rateCmbBox.DropDownStyle = ComboBoxStyle.DropDownList;
         }
 
+        //Event for adding the user's input into the MariaDB/Catalog.
         private void addBtn_Click(object sender, EventArgs e)
         {
             try
             {
                 List<Movie> movies = new List<Movie>();
-                //Movie movie;
 
                 string title = this.titleTxtBox.Text;
                 string genre = this.genreTxtBox.Text;
                 string year = this.releaseCmbBox.Text;
                 string rating = this.rateCmbBox.Text;                
-
-                //movie = new Movie(title, genre, Convert.ToInt32(year), rating);
-                //movies.Add(movie);
-                //for (int i = 0; i <= movies.Count(); i++)
-                //{
-                //    Console.WriteLine(movies[i]);
-                //}
 
                 MySqlConnection conn = new MySqlConnection(connectionString);
 
