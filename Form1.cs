@@ -215,6 +215,7 @@ namespace CatalogApp
         {
             NewEntry entryForm = new NewEntry();
             entryForm.ShowDialog();
+            //GetMovies(listView1);
         }
 
         //Event that displays all of the movies currently in the catalog in the listview.

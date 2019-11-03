@@ -138,7 +138,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(381, 440);
+            this.ClientSize = new System.Drawing.Size(382, 433);
             this.Controls.Add(this.deleteBtn);
             this.Controls.Add(this.rateLbl);
             this.Controls.Add(this.modifyBtn);
@@ -149,6 +149,7 @@
             this.Controls.Add(this.titleLbl);
             this.Controls.Add(this.genreTxtBox);
             this.Controls.Add(this.titleTxtBox);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Name = "ModifyEntry";
             this.Text = "Modify Movie Entry";
             this.Load += new System.EventHandler(this.ModifyEntry_Load);

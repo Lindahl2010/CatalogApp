@@ -127,7 +127,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(413, 450);
+            this.ClientSize = new System.Drawing.Size(382, 433);
             this.Controls.Add(this.rateLbl);
             this.Controls.Add(this.addBtn);
             this.Controls.Add(this.rateCmbBox);
