@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainForm));
             this.searchLbl = new System.Windows.Forms.Label();
             this.entryBtn = new System.Windows.Forms.Button();
             this.searchTxtBox = new System.Windows.Forms.TextBox();
@@ -147,13 +148,13 @@
             this.genreRdBtn.Name = "genreRdBtn";
             this.genreRdBtn.Size = new System.Drawing.Size(69, 21);
             this.genreRdBtn.TabIndex = 12;
-            this.genreRdBtn.TabStop = true;
             this.genreRdBtn.Text = "Genre";
             this.genreRdBtn.UseVisualStyleBackColor = true;
             // 
             // titleRdBtn
             // 
             this.titleRdBtn.AutoSize = true;
+            this.titleRdBtn.Checked = true;
             this.titleRdBtn.Location = new System.Drawing.Point(469, 34);
             this.titleRdBtn.Margin = new System.Windows.Forms.Padding(4);
             this.titleRdBtn.Name = "titleRdBtn";
@@ -188,6 +189,7 @@
             this.Controls.Add(this.displayBtn);
             this.Controls.Add(this.searchBtn);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.Name = "MainForm";
             this.Text = "Movie Catalog";

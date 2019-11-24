@@ -22,7 +22,7 @@ namespace CatalogApp
         }
 
         //Database Connection String to be accessed  whenever manipulating the DB
-        public static string connectionString = "server=192.168.183.11;database=catalog;user id=lindahlish;password=Password01;";
+        public static string connectionString = "server=192.168.185.181;database=Catalog;user id=group4;password=CatalogApp;";
         public static MySqlConnection conn;
         public static MySqlDataReader reader;
 
@@ -63,7 +63,7 @@ namespace CatalogApp
 
                 MySqlConnection conn = new MySqlConnection(connectionString);
 
-                string query = "INSERT INTO catalog.movies(title,genre,year,rating) VALUES('" + this.titleTxtBox.Text + "','" + this.genreTxtBox.Text + "'," +
+                string query = "INSERT INTO Catalog.movies(title,genre,year,rating) VALUES('" + this.titleTxtBox.Text + "','" + this.genreTxtBox.Text + "'," +
                     "'" + this.releaseCmbBox.Text + "','" + this.rateCmbBox.Text + "')";
                 MySqlCommand command = new MySqlCommand(query, conn);
                 MySqlDataReader reader;               

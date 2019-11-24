@@ -20,7 +20,7 @@ namespace CatalogApp
         }
 
         //Database Connection String to be accessed  whenever manipulating the DB
-        public static string connectionString = "server=192.168.183.11;database=catalog;user id=lindahlish;password=Password01;";
+        public static string connectionString = "server=192.168.185.181;database=Catalog;user id=group4;password=CatalogApp;";
         public static MySqlConnection conn = new MySqlConnection(connectionString);
         public static MySqlDataReader reader;
 
